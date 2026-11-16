@@ -18,7 +18,6 @@ jobs:
       - name: Install Playwright
         working-directory: ${{ github.workspace }}
         run: |
-         
          npm install
          npx playwright install chromium --with-deps
          shell: /usr/bin/bash -e {0}
