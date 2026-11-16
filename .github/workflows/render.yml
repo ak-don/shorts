@@ -14,14 +14,17 @@ jobs:
           node-version: '22'
 
       - name: Install Playwright
+        working-directory: .
         run: |
           npm install
           npx playwright install --with-deps chromium
 
       - name: Render stills
+        working-directory: .
         run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
 
       - name: Render frames
+        working-directory: .
         run: node render.mjs frames "0-1092"
         env:
           RESUME: 1
