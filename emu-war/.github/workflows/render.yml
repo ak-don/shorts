@@ -22,8 +22,7 @@ jobs:
          npx playwright install chromium --with-deps
          shell: /usr/bin/bash -e {0}
          env:
-              PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/shorts/shorts/.playwright
-
+             PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/shorts/shorts/.playwright
       - name: Render stills
         working-directory: ${{ github.workspace }}
         run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
@@ -44,7 +43,6 @@ jobs:
           mkdir -p out
           ffmpeg -y -i mix.wav -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 44100 out/loudnorm.wav
           ffmpeg -y -framerate 30 -i frames/f%04d.jpg -i out/loudnorm.wav -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart out/The_Great_Emu_War.mp4
-
       - name: Upload MP4
         uses: actions/upload-artifact@v4
         with:
