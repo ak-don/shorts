@@ -13,13 +13,17 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Install Playwright
+ - name: Install Playwright
         working-directory: ${{ github.workspace }}
         run: |
           npm install
-          npx playwright install --with-deps chromium
+          npx playwright install chromium --with-deps
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+        timeout-minutes: 10
 
-      - name: Render stills
+
+           - name: Render stills
         working-directory: ${{ github.workspace }}
         run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
 
