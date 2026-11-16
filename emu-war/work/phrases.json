@@ -1,0 +1,132 @@
+{
+  "audio_duration": 36.440813,
+  "total_frames": 1093,
+  "phrases": [
+    {
+      "index": 0,
+      "start": 2.8605,
+      "end": 3.92363,
+      "duration": 1.0631300000000001,
+      "text": "Australia declared war on birds.",
+      "start_frame": 86,
+      "end_frame": 118
+    },
+    {
+      "index": 1,
+      "start": 4.49234,
+      "end": 5.45032,
+      "duration": 0.9579799999999992,
+      "text": "Nineteen thirty-two.",
+      "start_frame": 135,
+      "end_frame": 164
+    },
+    {
+      "index": 2,
+      "start": 6.04063,
+      "end": 6.71503,
+      "duration": 0.6743999999999994,
+      "text": "Western Australia.",
+      "start_frame": 181,
+      "end_frame": 201
+    },
+    {
+      "index": 3,
+      "start": 6.85347,
+      "end": 7.55317,
+      "duration": 0.6997,
+      "text": "Wheat farmers begged the government \u2014 emus were eating the harvest.",
+      "start_frame": 206,
+      "end_frame": 227
+    },
+    {
+      "index": 4,
+      "start": 10.1109,
+      "end": 12.4151,
+      "duration": 2.3042,
+      "text": "So the Defence Minister sent two soldiers, a Lewis gun, and ten thousand rounds.",
+      "start_frame": 303,
+      "end_frame": 372
+    },
+    {
+      "index": 5,
+      "start": 15.5587,
+      "end": 16.6447,
+      "duration": 1.0860000000000003,
+      "text": "The emus didn't run.",
+      "start_frame": 467,
+      "end_frame": 499
+    },
+    {
+      "index": 6,
+      "start": 17.0896,
+      "end": 17.7408,
+      "duration": 0.6511999999999993,
+      "text": "They scattered.",
+      "start_frame": 513,
+      "end_frame": 532
+    },
+    {
+      "index": 7,
+      "start": 18.3506,
+      "end": 19.2433,
+      "duration": 0.8927000000000014,
+      "text": "Every burst hit dust.",
+      "start_frame": 551,
+      "end_frame": 577
+    },
+    {
+      "index": 8,
+      "start": 20.4968,
+      "end": 21.813,
+      "duration": 1.3161999999999985,
+      "text": "The major tried ambushes.",
+      "start_frame": 615,
+      "end_frame": 654
+    },
+    {
+      "index": 9,
+      "start": 22.2186,
+      "end": 23.9238,
+      "duration": 1.7052000000000014,
+      "text": "He tried mounting the gun on a truck \u2014 the vibration shook the sights loose.",
+      "start_frame": 667,
+      "end_frame": 718
+    },
+    {
+      "index": 10,
+      "start": 26.9915,
+      "end": 29.3553,
+      "duration": 2.3638000000000012,
+      "text": "A farmer joked the emus were reading the field manual.",
+      "start_frame": 810,
+      "end_frame": 881
+    },
+    {
+      "index": 11,
+      "start": 30.0373,
+      "end": 31.4167,
+      "duration": 1.3794000000000004,
+      "text": "But when the ammunition ran out, the birds were still there.",
+      "start_frame": 901,
+      "end_frame": 943
+    },
+    {
+      "index": 12,
+      "start": 33.491,
+      "end": 34.4487,
+      "duration": 0.9577000000000027,
+      "text": "The army withdrew.",
+      "start_frame": 1005,
+      "end_frame": 1033
+    },
+    {
+      "index": 13,
+      "start": 34.9938,
+      "end": 36.2093,
+      "duration": 1.2154999999999987,
+      "text": "The emus stayed for dinner.",
+      "start_frame": 1050,
+      "end_frame": 1086
+    }
+  ]
+}
