@@ -14,25 +14,27 @@ jobs:
           node-version: '22'
 
       - name: Install Playwright
-        working-directory: .
+        working-directory: ${{ github.workspace }}
         run: |
           npm install
           npx playwright install --with-deps chromium
 
       - name: Render stills
-        working-directory: .
+        working-directory: ${{ github.workspace }}
         run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
 
       - name: Render frames
-        working-directory: .
+        working-directory: ${{ github.workspace }}
         run: node render.mjs frames "0-1092"
         env:
           RESUME: 1
 
       - name: Install Python deps
+        working-directory: ${{ github.workspace }}
         run: pip install opencv-python-headless numpy pillow
 
       - name: Final encode + QA
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p out
           ffmpeg -y -i mix.wav -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 44100 out/loudnorm.wav
@@ -42,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: emu-war-mp4
-          path: out/The_Great_Emu_War.mp4
+          path: ${{ github.workspace }}/out/The_Great_Emu_War.mp4
