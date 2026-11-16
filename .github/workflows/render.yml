@@ -1,0 +1,42 @@
+name: Render Emu War
+on: [push, workflow_dispatch]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Render stills
+        run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
+
+      - name: Render frames
+        run: node render.mjs frames "0-1092"
+        env:
+          RESUME: 1
+
+      - name: Install Python deps
+        run: pip install opencv-python-headless numpy pillow
+
+      - name: Final encode + QA
+        run: |
+          mkdir -p out
+          ffmpeg -y -i mix.wav -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 44100 out/loudnorm.wav
+          ffmpeg -y -framerate 30 -i frames/f%04d.jpg -i out/loudnorm.wav -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart out/The_Great_Emu_War.mp4
+
+      - name: Upload MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: emu-war-mp4
+          path: out/The_Great_Emu_War.mp4
