@@ -5,31 +5,39 @@ jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Install Playwright
+        working-directory: ${{ github.workspace }}
         run: |
-          npm ci
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install chromium --with-deps
+        timeout-minutes: 10
 
       - name: Render stills
+        working-directory: ${{ github.workspace }}
         run: node render.mjs stills "0,86,135,181,206,303,467,532,615,718,800,1005,1050,1092"
 
       - name: Render frames
+        working-directory: ${{ github.workspace }}
         run: node render.mjs frames "0-1092"
         env:
           RESUME: 1
 
       - name: Install Python deps
+        working-directory: ${{ github.workspace }}
         run: pip install opencv-python-headless numpy pillow
 
       - name: Final encode + QA
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p out
           ffmpeg -y -i mix.wav -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 44100 out/loudnorm.wav
@@ -39,4 +47,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: emu-war-mp4
-          path: out/The_Great_Emu_War.mp4
+          path: ${{ github.workspace }}/out/The_Great_Emu_War.mp4
