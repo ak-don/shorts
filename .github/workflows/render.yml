@@ -18,12 +18,12 @@ jobs:
       - name: Install Playwright
         working-directory: ${{ github.workspace }}
         run: |
-          npm install
-          npx playwright install chromium --with-deps
-        shell: /usr/bin/bash -e {0}
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
-        timeout-minutes: 10
+         
+         npm install
+         npx playwright install chromium --with-deps
+         shell: /usr/bin/bash -e {0}
+         env:
+             PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/shorts/shorts/.playwright
 
       - name: Render stills
         working-directory: ${{ github.workspace }}
