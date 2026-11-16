@@ -20,6 +20,9 @@ jobs:
         run: |
           npm install
           npx playwright install chromium --with-deps
+        shell: /usr/bin/bash -e {0}
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
         timeout-minutes: 10
 
       - name: Render stills
